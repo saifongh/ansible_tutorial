@@ -1,3 +1,6 @@
+[rocky] 
 192.168.1.15 ansible_user=saifonrocky
-192.168.1.130 ansible_user=saifoncentos
 192.168.1.4 ansible_user=saifonrocky
+
+[centos]
+192.168.1.130 ansible_user=saifoncentos

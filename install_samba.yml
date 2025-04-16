@@ -1,0 +1,9 @@
+---
+- hosts: rocky
+  become: true
+  tasks:
+
+  - name: install samba
+    dnf:
+     name: samba
+     state: latest

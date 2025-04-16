@@ -1,0 +1,10 @@
+- hosts: all
+  become: true
+  tasks:
+
+    - name: Start or Stop a service
+      service:
+        name: nmb
+        state: restarted
+        enabled: true
+

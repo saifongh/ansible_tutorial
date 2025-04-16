@@ -1,0 +1,23 @@
+---
+- name: Check if a specific package is installed
+  hosts: all
+  become: true
+  tasks:
+
+    - name: Gather installed package facts
+      ansible.builtin.package_facts:
+
+    - name: Set package name based on OS
+      set_fact:
+        target_package: "{{ 'samba' if ansible_os_family == 'RedHat' else 'smbd' }}"
+
+    - name: Check if package is installed
+      debug:
+        msg: "✅ Package {{ target_package }} is installed."
+      when: target_package in ansible_facts.packages
+
+    - name: Fail if package is not installed
+      fail:
+        msg: "❌ Package {{ target_package }} is NOT installed."
+      when: target_package not in ansible_facts.packages
+

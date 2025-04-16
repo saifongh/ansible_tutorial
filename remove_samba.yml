@@ -1,0 +1,10 @@
+---
+- hosts: rocky
+  become: true
+  tasks:
+    
+
+  - name: remove samba
+    dnf:
+     name: samba
+     state: absent
